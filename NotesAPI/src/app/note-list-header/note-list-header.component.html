@@ -1,0 +1,6 @@
+<section class="NotesAPI">
+  <header class="header">
+    <h1>{{title}}</h1>
+    <input class="new-note" placeholder="Title" autofocus="" [(ngModel)]="newNote.title" (keyup.enter)="postNote()">
+    <input class="new-note" placeholder="Text" autofocus="" [(ngModel)]="newNote.text" (keyup.enter)="postNote()">
+  </header>

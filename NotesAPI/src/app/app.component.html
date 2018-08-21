@@ -1,0 +1,37 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<!-- <div style="text-align:center">
+  <h1>
+    {{ title }}
+  </h1>
+</div> -->
+
+<!-- <section class="NotesAPI">
+  <header class="header">
+    <h1>{{title}}</h1>
+    <input class="new-note" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newNote.title" (keyup.enter)="postNote()">
+  </header> -->
+
+  <app-note-list-header (add)="postNote($event)"></app-note-list-header>
+
+  <app-note-list [notes]="notes" (toggleIsPinned)="onToggleNoteIsPinned($event)" (remove)="onRemoveNote($event)"></app-note-list>
+
+  <!-- <section class="main" *ngIf="notes.length > 0">
+    <ul class="note-list">
+      <li *ngFor="let note of notes" [class.isPinned]="note.isPinned">
+        <div class="view">
+          <input type="checkbox" class="toggle" (click)="toggleNoteIsPinned(note)" [checked]="note.isPinned">
+          <label>{{note.title}}</label>
+          <button class="destroy" (click)="deleteNoteById(note)"></button>
+        </div>
+      </li>
+    </ul>
+  </section> -->
+  <!-- <footer class="footer" *ngIf="notes.length > 0">
+    <span class="note-count">
+      <strong>{{notes.length}} {{notes.length == 1 ? 'item' : 'items'}} left</strong>
+    </span>
+  </footer> -->
+
+
+
+<router-outlet></router-outlet>
