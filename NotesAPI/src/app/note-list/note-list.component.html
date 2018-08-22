@@ -1,10 +1,12 @@
 <section class="main" *ngIf="notes.length > 0">
   <ul class="note-list">
-    <li *ngFor="let note of notes" [class.isPinned]="note.isPinned">
-      <app-note-list-item
-        [note]="note"
-        (toggleIsPinned)="onToggleNoteIsPinned($event)"
-        (remove)="onRemoveNote($event)"></app-note-list-item>
-    </li>
+      <li *ngFor="let note of notes" [class.isPinned]="note.isPinned">
+        <mat-card>
+          <app-note-list-item
+            [note]="note"
+            (toggleIsPinned)="onToggleNoteIsPinned($event)"
+            (remove)="onRemoveNote($event)"></app-note-list-item>
+            </mat-card>
+        </li>
   </ul>
 </section>

@@ -9,13 +9,14 @@ import { Note } from '../note';
 export class NoteListComponent implements OnInit {
 
   @Input()
-  notes: Note[];
+  notes: Note[] = [];
 
   @Output()
   toggleIsPinned: EventEmitter<Note> = new EventEmitter();
 
   @Output()
   remove: EventEmitter<Note> = new EventEmitter();
+
   constructor() { }
 
   ngOnInit() {

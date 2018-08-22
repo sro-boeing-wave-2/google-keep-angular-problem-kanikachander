@@ -11,6 +11,7 @@ import { Note } from './note';
 export class AppComponent {
   title = 'NotesAPI';
   newNote: Note = new Note();
+  notes : Note[] = [];
   constructor(private notesService : NotesService){}
 
   // postNote(){
@@ -18,19 +19,47 @@ export class AppComponent {
   //   this.newNote = new Note();
   // }
 
-  postNote(note: Note){
-    this.notesService.postNote(note);
+  public ngOnInit(){
+    this.notesService
+    .getAllNotes()
+    .subscribe(
+      (notes) => {
+        this.notes = notes;
+      }
+    )
+  }
+
+  postNote(note){
+    this.notesService
+    .postNote(note)
+    .subscribe(
+      (newNote) => {
+        this.notes = this.notes.concat(newNote);
+      }
+    );
   }
 
   onRemoveNote(note){
-    this.notesService.deleteNoteById(note.id);
+    this.notesService
+    .deleteNoteById(note.id)
+    .subscribe(
+      (_) => {
+        this.notes = this.notes.filter((t) => t.id !== note.id);
+      }
+    );
   }
 
-  get notes()
-  {
-    return this.notesService.getAllNotes();
-  }
-  onToggleNoteIsPinned(note: Note){
-    this.notesService.toggleNoteIsPinned(note);
+  // get notes()
+  // {
+  //   return this.notesService.getAllNotes();
+  // }
+  onToggleNoteIsPinned(note){
+    this.notesService
+    .toggleNoteIsPinned(note)
+    .subscribe(
+      (updatedNote) => {
+        note = updatedNote;
+      }
+    );
   }
 }

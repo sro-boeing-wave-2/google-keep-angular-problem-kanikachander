@@ -11,20 +11,29 @@ import { NoteListHeaderComponent } from './note-list-header/note-list-header.com
 import { NoteListComponent } from './note-list/note-list.component';
 import { NoteListItemComponent } from './note-list-item/note-list-item.component';
 import { ApiService } from './api.service';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatToolbarModule, MatCardModule} from '@angular/material';
+import 'hammerjs';
 
 @NgModule({
   declarations: [
     AppComponent,
     NoteListHeaderComponent,
     NoteListComponent,
-    NoteListItemComponent
+    NoteListItemComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatCardModule
+  ],
+  exports: [
+
   ],
   providers: [NotesService, ApiService],
   bootstrap: [AppComponent]

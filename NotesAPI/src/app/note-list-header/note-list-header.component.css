@@ -1,4 +1,21 @@
 .NotesAPI{
   text-align: center;
+  justify-content: center;
+  /* background-color: blueviolet; */
+}
+
+header {
+  text-align: center;
+}
+
+mat-card {
+  margin: 1% auto;
+  max-width: 300px;
+}
+
+.title{
+  text-align: center;
+  justify-content: center;
   background-color: blueviolet;
 }
+

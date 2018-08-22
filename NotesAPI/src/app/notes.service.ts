@@ -1,57 +1,40 @@
 import { Injectable } from '@angular/core';
 import { Note } from './note';
+import { ApiService } from './api.service';
+import { Observable } from 'rxjs';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class NotesService {
 
   lastId : number = 0;
-  notes : Note[] = [
-    {
-      "id":1,
-      "title" : "My Note",
-      "isPinned": true
-    }
-  ];
+  notes : Note[] = [];
 
-  constructor() { }
+  constructor(
+    private api : ApiService
+  ) { }
 
-  postNote(note : Note) : NotesService{
-    if (!note.id){
-      note.id = ++this.lastId;
-    }
-
-    this.notes.push(note);
-    return this;
+  postNote(note : Note) : Observable<Note> {
+    return this.api.postNote(note);
   }
 
-  deleteNoteById (id : number) : NotesService{
-    this.notes = this.notes.filter(note => note.id !== id);
-    return this;
+  deleteNoteById (noteId : number) : Observable<Note> {
+    return this.api.deleteNoteById(noteId);
   }
 
-  updateNoteById (id: number, values: Object = {}): Note {
-    let note = this.getNoteById(id);
-    if(!note){
-      return null;
-    }
-    Object.assign(note, values);
-    return note;
+  updateNote(note: Note): Observable<Note> {
+    return this.api.updateNote(note);
   }
 
-  getAllNotes() : Note[]{
-    return this.notes;
+  getAllNotes() : Observable<Note[]> {
+    return this.api.getAllNotes();
   }
 
-  getNoteById (id: number) : Note {
-    return this.notes.filter(note => note.id === id).pop();
+  getNoteById (id: number) : Observable<Note>  {
+    return this.api.getNoteById(id);
   }
 
-  toggleNoteIsPinned(note : Note){
-    let updatedNote = this.updateNoteById(note.id, {
-      isPinned: !note.isPinned
-    });
-    return updatedNote;
+  toggleNoteIsPinned(note: Note) {
+    note.isPinned = !note.isPinned;
+    return this.api.updateNote(note);
   }
 }
