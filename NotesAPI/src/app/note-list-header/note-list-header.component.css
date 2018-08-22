@@ -1,11 +1,13 @@
-.NotesAPI{
+/* .NotesAPI{
   text-align: center;
-  justify-content: center;
-  /* background-color: blueviolet; */
-}
+
+   background-color: blueviolet;
+} */
 
 header {
   text-align: center;
+  margin: 0 auto;
+  justify-content: center;
 }
 
 mat-card {
@@ -13,9 +15,22 @@ mat-card {
   max-width: 300px;
 }
 
-.title{
+mat-toolbar{
   text-align: center;
   justify-content: center;
-  background-color: blueviolet;
+}
+
+mat-card-header, mat-card-content {
+  text-align: center;
+}
+
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+}
+
+.example-full-width {
+  width: 100%;
 }
 

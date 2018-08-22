@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Note } from '../note';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-note-list-item',
@@ -8,6 +9,7 @@ import { Note } from '../note';
 })
 export class NoteListItemComponent implements OnInit {
 
+  update = new FormControl('');
   @Input() note: Note;
 
   @Output()

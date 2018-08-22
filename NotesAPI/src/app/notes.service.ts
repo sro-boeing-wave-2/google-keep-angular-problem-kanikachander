@@ -34,7 +34,7 @@ export class NotesService {
   }
 
   toggleNoteIsPinned(note: Note) {
-    note.isPinned = !note.isPinned;
+    note.pinned = !note.pinned;
     return this.api.updateNote(note);
   }
 }

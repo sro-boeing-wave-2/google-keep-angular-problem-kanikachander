@@ -1,5 +1,9 @@
 <div class="view">
-  <input class="toggle" type="checkbox" (click)="toggleNoteIsPinned(note)" [checked]="note.isPinned">
-  <label>{{note.title}} {{note.text}}</label>
-  <button class="destroy" (click)="removeNote(notes)"></button>
+  <mat-card-title >
+    <mat-checkbox class="toggle" type="checkbox" (change)="toggleNoteIsPinned(note)" [checked]="note.pinned"></mat-checkbox> {{note.title}}
+  </mat-card-title>
+  <mat-card-subtitle>{{note.text}}</mat-card-subtitle>
+  <!-- <label>{{note.title}} {{note.text}}</label> -->
+  <i class="fas fa-trash-alt" id="delete" (click)="removeNote(note)"></i>
+  <i class="fas fa-edit"></i>
 </div>

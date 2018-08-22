@@ -12,8 +12,12 @@ import { NoteListComponent } from './note-list/note-list.component';
 import { NoteListItemComponent } from './note-list-item/note-list-item.component';
 import { ApiService } from './api.service';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatToolbarModule, MatCardModule} from '@angular/material';
+import {MatToolbarModule, MatCardModule, MatInputModule} from '@angular/material';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import 'hammerjs';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,12 @@ import 'hammerjs';
     HttpModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    MatCardModule
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatGridListModule,
+    MatCheckboxModule,
+    ReactiveFormsModule
   ],
   exports: [
 

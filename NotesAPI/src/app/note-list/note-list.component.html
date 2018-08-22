@@ -1,12 +1,13 @@
 <section class="main" *ngIf="notes.length > 0">
   <ul class="note-list">
-      <li *ngFor="let note of notes" [class.isPinned]="note.isPinned">
-        <mat-card>
-          <app-note-list-item
-            [note]="note"
-            (toggleIsPinned)="onToggleNoteIsPinned($event)"
-            (remove)="onRemoveNote($event)"></app-note-list-item>
-            </mat-card>
-        </li>
+      <mat-grid-list cols="4" rowHeight="1:1">
+    <li *ngFor="let note of notes" [class.completed]="note.pinned">
+      <mat-grid-tile>
+      <mat-card>
+        <app-note-list-item [note]="note" (toggleIsPinned)="onToggleNoteIsPinned($event)" (remove)="onRemoveNote($event)"></app-note-list-item>
+      </mat-card>
+      </mat-grid-tile>
+    </li>
+    </mat-grid-list>
   </ul>
 </section>

@@ -1,19 +1,21 @@
 <section class="NotesAPI">
-  <header class="header">
-    <mat-toolbar color="primary" class="title">
+  <header>
+    <mat-toolbar color="primary">
       <span>{{title}}</span>
     </mat-toolbar>
-    <mat-card>
-      <mat-card-header>
-        <p>Title</p>
-        <input class="new-note" placeholder="Title" autofocus="" [(ngModel)]="newNote.title" (keyup.enter)="postNote()">
-      </mat-card-header>
-      <mat-card-content>
-        <input class="new-note" placeholder="Text" autofocus="" [(ngModel)]="newNote.text" (keyup.enter)="postNote()">
-      </mat-card-content>
-
-
-    </mat-card>
-
   </header>
-  </section>
+
+  <mat-card>
+    <div>
+      <mat-form-field>
+        <input matInput class="new-note" placeholder="Title" autofocus="" [(ngModel)]="newNote.title" (keyup.enter)="postNote()">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput class="new-note" placeholder="Text" autofocus="" [(ngModel)]="newNote.text" (keyup.enter)="postNote()">
+      </mat-form-field>
+
+    </div>
+  </mat-card>
+
+
+</section>
