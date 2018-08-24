@@ -1,9 +1,37 @@
-<div class="view">
-  <mat-card-title >
-    <mat-checkbox class="toggle" type="checkbox" (change)="toggleNoteIsPinned(note)" [checked]="note.pinned"></mat-checkbox> {{note.title}}
+<mat-card>
+
+  <mat-card-title>
+    <div *ngIf="!edit; else edittitle">
+        <mat-checkbox class="toggle" type="checkbox" (change)="toggleNoteIsPinned(note)" [checked]="note.pinned"></mat-checkbox>
+      {{note.title}}
+    </div>
+    <ng-template #edittitle>
+      <mat-form-field>
+          <mat-checkbox class="toggle" type="checkbox" (change)="toggleNoteIsPinned(note)" [checked]="note.pinned"></mat-checkbox>
+      <input matInput class="edittextbox" type="textbox" [(ngModel)]="note.title">
+    </mat-form-field>
+    </ng-template>
   </mat-card-title>
-  <mat-card-subtitle>{{note.text}}</mat-card-subtitle>
+  <mat-card-subtitle>
+    <div *ngIf="!edit; else edittext">
+      {{note.text}}
+    </div>
+    <ng-template #edittext>
+        <mat-form-field>
+      <input matInput class="edittextbox" type="textbox" [(ngModel)]="note.text">
+        </mat-form-field>
+    </ng-template>
+  </mat-card-subtitle>
   <!-- <label>{{note.title}} {{note.text}}</label> -->
-  <i class="fas fa-trash-alt" id="delete" (click)="removeNote(note)"></i>
-  <i class="fas fa-edit"></i>
-</div>
+  <mat-card-actions>
+    <mat-icon class="destroy" (click)="removeNote(note)">
+      delete
+    </mat-icon>
+    <mat-icon *ngIf="!edit" class="destroy" (click)="toggleEdit(edit)">
+      edit
+    </mat-icon>
+    <mat-icon *ngIf="edit" class="destroy" (click)="updateNote(note)">save
+    </mat-icon>
+  </mat-card-actions>
+
+</mat-card>

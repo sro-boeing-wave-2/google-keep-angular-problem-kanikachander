@@ -1,3 +1,5 @@
-#delete {
-  padding-right: 5%;
+mat-card {
+  width: 70%;
+  height: 80%;
 }
+

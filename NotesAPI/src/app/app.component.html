@@ -11,7 +11,7 @@
     <input class="new-note" placeholder="What needs to be done?" autofocus="" [(ngModel)]="newNote.title" (keyup.enter)="postNote()">
   </header> -->
 
-  <app-note-list-header (add)="postNote($event)" (toggleIsPinned)="onToggleNoteIsPinned($event)" (remove)="onRemoveNote($event)"></app-note-list-header>
+  <app-note-list-header (add)="postNote($event)" ></app-note-list-header>
 
   <app-note-list [notes]="notes" (toggleIsPinned)="onToggleNoteIsPinned($event)" (remove)="onRemoveNote($event)"></app-note-list>
 
